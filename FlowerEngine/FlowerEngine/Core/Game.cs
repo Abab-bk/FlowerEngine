@@ -20,29 +20,40 @@ public class Game
     #region PublicVars
 
     public GameWindow Window { get; private set; }
+    public Scene Scene { get; private set; }
 
     #endregion
 
 
     #region PublicMethods
     
-    public Game(GameSettings gameSettings, WindowSettings windowSettings)
+    public Game(GameSettings gameSettings, WindowSettings windowSettings, Scene scene)
     {
         Window = new GameWindow(windowSettings);
         Instance = this;
+        Scene = scene;
+        
+        Scene.OnEnterWorld();
+    }
+
+    public void SetScene(Scene scene)
+    {
+        Scene.Destroy();
+        Scene = scene;
+        Scene.OnEnterWorld();
     }
 
     public ExitCode Run()
     {
         _quit = false;
         
-        Raylib.SetExitKey(KeyboardKey.Null);
+        SetExitKey(KeyboardKey.Null);
         
         StartGameLoop();
         RunGameLoop();
         EndGameLoop();
         
-        Raylib.CloseWindow();
+        CloseWindow();
         
         return new ExitCode(false);
     }
@@ -60,20 +71,28 @@ public class Game
     private void EndGameLoop()
     {
         EndBefore();
+        
+        Scene.Destroy();
     }
 
     private void RunGameLoop()
     {
         while (!_quit)
         {
-            if (Raylib.WindowShouldClose())
+            if (WindowShouldClose())
             {
                 Quit();
                 continue;
             }
 
-            var delta = Raylib.GetFrameTime();
+            BeginDrawing();
+            ClearBackground(Color.Black);
+            
+            var delta = GetFrameTime();
             Window.Update(delta);
+            Scene.Update(delta);
+            
+            EndDrawing();
         }
     }
     

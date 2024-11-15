@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Raylib-cs" Version="6.1.1" />
+      <Folder Include="Core\Enums\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Core\Enums\" />
+      <PackageReference Include="Raylib-cs" Version="6.1.1" />
     </ItemGroup>
 
 </Project>

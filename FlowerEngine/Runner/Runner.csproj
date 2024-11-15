@@ -11,4 +11,14 @@
       <ProjectReference Include="..\FlowerEngine\FlowerEngine.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Content\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Content\Star.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@
 
 public struct WindowSettings(int width, int height, string title)
 {
-    public int Width = width;
-    public int Height = height;
-    public string Title = title;
+    public int Width { get; set; } = width;
+    public int Height { get; set; } = height;
+    public string Title { get; set; } = title;
 }

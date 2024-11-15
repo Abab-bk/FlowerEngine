@@ -9,7 +9,7 @@ public sealed class GameWindow
     
     internal GameWindow(WindowSettings windowSettings)
     {
-        Raylib.InitWindow(windowSettings.Width, windowSettings.Height, windowSettings.Title);
+        InitWindow(windowSettings.Width, windowSettings.Height, windowSettings.Title);
         Instance = this;
     }
 
