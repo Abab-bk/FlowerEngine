@@ -7,7 +7,7 @@ public class Scene
 {
     public readonly List<GameObject> GameObjects = new();
     
-    public virtual void OnEnterWorld()
+    public virtual void OnActive()
     {
     }
     

@@ -33,14 +33,14 @@ public class Game
         Instance = this;
         Scene = scene;
         
-        Scene.OnEnterWorld();
+        Scene.OnActive();
     }
 
     public void SetScene(Scene scene)
     {
         Scene.Destroy();
         Scene = scene;
-        Scene.OnEnterWorld();
+        Scene.OnActive();
     }
 
     public ExitCode Run()
