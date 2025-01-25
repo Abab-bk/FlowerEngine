@@ -7,10 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Core\Enums\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="Friflo.Engine.ECS" Version="3.0.1" />
       <PackageReference Include="Raylib-cs" Version="6.1.1" />
     </ItemGroup>
 

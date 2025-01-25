@@ -1,4 +1,4 @@
-﻿using FlowerEngine.Core.Structs;
+﻿using FlowerEngine.Core.Configs;
 using Raylib_cs;
 
 namespace FlowerEngine.Core;
@@ -20,29 +20,18 @@ public class Game
     #region PublicVars
 
     public GameWindow Window { get; private set; }
-    public Scene Scene { get; private set; }
 
     #endregion
 
 
     #region PublicMethods
     
-    public Game(GameSettings gameSettings, WindowSettings windowSettings, Scene scene)
+    public Game(GameSettings gameSettings, WindowSettings windowSettings)
     {
         Window = new GameWindow(windowSettings);
         Instance = this;
-        Scene = scene;
-        
-        Scene.OnActive();
     }
-
-    public void SetScene(Scene scene)
-    {
-        Scene.Destroy();
-        Scene = scene;
-        Scene.OnActive();
-    }
-
+    
     public ExitCode Run()
     {
         _quit = false;
@@ -71,8 +60,6 @@ public class Game
     private void EndGameLoop()
     {
         EndBefore();
-        
-        Scene.Destroy();
     }
 
     private void RunGameLoop()
@@ -90,7 +77,6 @@ public class Game
             
             var delta = GetFrameTime();
             Window.Update(delta);
-            Scene.Update(delta);
             
             EndDrawing();
         }

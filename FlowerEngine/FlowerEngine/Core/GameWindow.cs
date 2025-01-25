@@ -1,4 +1,4 @@
-﻿using FlowerEngine.Core.Structs;
+﻿using FlowerEngine.Core.Configs;
 using Raylib_cs;
 
 namespace FlowerEngine.Core;

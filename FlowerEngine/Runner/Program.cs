@@ -1,8 +1,6 @@
 ﻿using FlowerEngine.Core;
-using FlowerEngine.Core.GameObjects;
-using FlowerEngine.Core.Structs;
+using FlowerEngine.Core.Configs;
 using Raylib_cs;
-using Runner.PingPong;
 
 namespace Runner;
 
@@ -16,8 +14,7 @@ public static class Program
                 1280,
                 720,
                 "Flower Engine"
-                ),
-            new World()
+                )
             );
         
         game.Run();
